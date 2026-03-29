@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Stream Plus</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-logo">Free Stream <span>Plus</span></div>
+    <div class="nav-links">
+      <!-- Mostrati solo se l'utente è loggato (gestiti da JS) -->
+      <span id="nav-username" class="nav-user"></span>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="login.html" id="nav-login" class="nav-link btn-nav">Accedi</a>
+      <a href="#" id="nav-logout" class="nav-link btn-nav" style="display:none;" onclick="logout()">Esci</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Benvenuto su <span>Free Stream Plus</span></h1>
+      <p>Guarda i migliori film in streaming. Gratis. Sempre.</p>
+      <a href="login.html" class="btn-hero" id="hero-cta">Inizia ora</a>
+    </div>
+  </section>
+
+  <!-- ===== CATALOGO FILM ===== -->
+  <main class="catalog-section">
+    <h2 class="section-title">🎬 Catalogo Film</h2>
+    <p class="section-sub" id="catalog-message">Accedi per guardare i film disponibili.</p>
+
+    <!-- Griglia film (visibile solo dopo login) -->
+    <div class="movies-grid" id="movies-grid">
+      <!-- Le card vengono generate da JavaScript (movies.js) -->
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2025 Free Stream Plus — Progetto scolastico</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="js/auth.js"></script>
+  <script src="js/movies.js"></script>
+  <script src="js/home.js"></script>
+
+</body>
+</html>

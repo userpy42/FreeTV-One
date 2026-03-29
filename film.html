@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film — Free Stream Plus</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html">Free Stream <span>Plus</span></a></div>
+    <div class="nav-links">
+      <span id="nav-username" class="nav-user"></span>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="#" id="nav-logout" class="nav-link btn-nav" onclick="logout()">Esci</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGINA FILM ===== -->
+  <main class="movie-page">
+
+    <!-- Pulsante torna indietro -->
+    <a href="index.html" class="btn-back">← Torna al catalogo</a>
+
+    <!-- Info del film (popolate da JS) -->
+    <div class="movie-detail">
+      <div class="movie-poster-large" id="movie-poster-large"></div>
+
+      <div class="movie-info-detail">
+        <h1 id="movie-title-detail">Caricamento...</h1>
+        <div class="movie-meta">
+          <span id="movie-year-detail" class="badge"></span>
+          <span id="movie-genre-detail" class="badge"></span>
+          <span id="movie-duration-detail" class="badge"></span>
+        </div>
+        <p id="movie-desc-detail" class="movie-description"></p>
+
+        <!-- Pulsante per avviare il player -->
+        <button class="btn-play" id="btn-play" onclick="showPlayer()">
+          ▶ Guarda il Film
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== VIDEO PLAYER ===== -->
+    <!-- Nascosto finché l'utente non clicca "Guarda" -->
+    <div class="player-container" id="player-container" style="display:none;">
+      <h3 class="player-title">▶ Ora in riproduzione</h3>
+      <video
+        id="video-player"
+        controls
+        width="100%"
+        preload="metadata"
+      >
+        <!-- Il src viene impostato da JavaScript (film.js) -->
+        <source id="video-source" src="" type="video/mp4" />
+        Il tuo browser non supporta il tag video HTML5.
+      </video>
+      <button class="btn-close-player" onclick="hidePlayer()">✕ Chiudi player</button>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2025 Free Stream Plus — Progetto scolastico</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="js/auth.js"></script>
+  <script src="js/movies.js"></script>
+  <script src="js/film.js"></script>
+
+</body>
+</html>
