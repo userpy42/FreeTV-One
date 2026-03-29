@@ -1,0 +1,554 @@
+/* =============================================
+   FREE STREAM PLUS — Foglio di stile principale
+   Tema: Nero e Giallo
+   Progetto scolastico
+   ============================================= */
+
+/* ===== VARIABILI COLORI ===== */
+:root {
+  --nero:        #0d0d0d;   /* sfondo principale */
+  --nero-card:   #1a1a1a;   /* sfondo card */
+  --nero-nav:    #111111;   /* sfondo navbar */
+  --giallo:      #f5c518;   /* colore accento principale */
+  --giallo-hover:#e0b015;   /* giallo scurito per hover */
+  --bianco:      #ffffff;
+  --grigio:      #aaaaaa;   /* testi secondari */
+  --grigio-bordo:#2a2a2a;   /* bordi */
+  --rosso-errore:#e74c3c;
+  --verde-ok:    #2ecc71;
+}
+
+/* ===== RESET BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--nero);
+  color: var(--bianco);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--giallo);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--giallo-hover);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: var(--nero-nav);
+  border-bottom: 2px solid var(--giallo);
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo "Free Stream Plus" */
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--bianco);
+}
+
+.nav-logo a {
+  color: var(--bianco);
+}
+
+.nav-logo span {
+  color: var(--giallo); /* "Plus" in giallo */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--bianco);
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  color: var(--giallo);
+}
+
+/* Pulsante "Accedi" / "Esci" nella navbar */
+.btn-nav {
+  background-color: var(--giallo);
+  color: var(--nero) !important;
+  padding: 7px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.btn-nav:hover {
+  background-color: var(--giallo-hover);
+}
+
+/* Nome utente loggato */
+.nav-user {
+  color: var(--grigio);
+  font-size: 0.9rem;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(135deg, #111 0%, #1a1500 60%, #0d0d0d 100%);
+  padding: 80px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--grigio-bordo);
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-content h1 span {
+  color: var(--giallo);
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  color: var(--grigio);
+  margin-bottom: 30px;
+}
+
+/* Pulsante grande nella hero */
+.btn-hero {
+  display: inline-block;
+  background-color: var(--giallo);
+  color: var(--nero);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 14px 40px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-hero:hover {
+  background-color: var(--giallo-hover);
+  color: var(--nero);
+}
+
+/* ===== SEZIONE CATALOGO ===== */
+.catalog-section {
+  flex: 1;
+  padding: 50px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  color: var(--grigio);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* ===== GRIGLIA FILM ===== */
+.movies-grid {
+  display: grid;
+  /* 4 colonne su desktop, meno su mobile */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* ===== CARD FILM ===== */
+.movie-card {
+  background-color: var(--nero-card);
+  border: 1px solid var(--grigio-bordo);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--giallo);
+}
+
+/* Copertina del film (colore/emoji come placeholder) */
+.movie-poster {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, #1f1f00, #333300);
+}
+
+.movie-card-body {
+  padding: 14px;
+}
+
+.movie-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--bianco);
+}
+
+.movie-card-genre {
+  font-size: 0.8rem;
+  color: var(--giallo);
+  margin-bottom: 8px;
+}
+
+.movie-card-desc {
+  font-size: 0.82rem;
+  color: var(--grigio);
+  /* Tronca la descrizione a 2 righe */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-card {
+  display: block;
+  margin: 12px 14px 14px;
+  background-color: var(--giallo);
+  color: var(--nero);
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.btn-card:hover {
+  background-color: var(--giallo-hover);
+  color: var(--nero);
+}
+
+/* ===== PAGINA AUTH (Login / Registrazione) ===== */
+.auth-page {
+  background: radial-gradient(ellipse at center, #1a1500 0%, #0d0d0d 70%);
+}
+
+.auth-container {
+  flex: 1;
+  max-width: 420px;
+  margin: 60px auto;
+  background-color: var(--nero-card);
+  border: 1px solid var(--grigio-bordo);
+  border-radius: 10px;
+  padding: 36px 40px;
+}
+
+/* Tabs Login / Registrati */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--grigio-bordo);
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--grigio);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+  transition: color 0.2s;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab-btn.active {
+  color: var(--giallo);
+  border-bottom-color: var(--giallo);
+}
+
+.tab-btn:hover {
+  color: var(--bianco);
+}
+
+/* Form di login/registrazione */
+.auth-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.form-sub {
+  color: var(--grigio);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.auth-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--grigio);
+  margin-bottom: 4px;
+  margin-top: 14px;
+}
+
+.auth-form input {
+  width: 100%;
+  background-color: #222;
+  border: 1px solid var(--grigio-bordo);
+  border-radius: 5px;
+  color: var(--bianco);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.auth-form input:focus {
+  border-color: var(--giallo);
+}
+
+/* Pulsante principale (submit) */
+.btn-primary {
+  width: 100%;
+  background-color: var(--giallo);
+  color: var(--nero);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 22px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--giallo-hover);
+}
+
+.form-switch {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  color: var(--grigio);
+}
+
+/* Messaggi errore / successo */
+.auth-message {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: none; /* mostrato da JS quando serve */
+}
+
+.auth-message.errore {
+  background-color: #2a0a0a;
+  color: var(--rosso-errore);
+  border: 1px solid var(--rosso-errore);
+  display: block;
+}
+
+.auth-message.successo {
+  background-color: #0a2a0a;
+  color: var(--verde-ok);
+  border: 1px solid var(--verde-ok);
+  display: block;
+}
+
+/* ===== PAGINA FILM (film.html) ===== */
+.movie-page {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  width: 100%;
+}
+
+.btn-back {
+  display: inline-block;
+  color: var(--grigio);
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.btn-back:hover {
+  color: var(--giallo);
+}
+
+.movie-detail {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+/* Poster grande con emoji */
+.movie-poster-large {
+  width: 200px;
+  min-width: 200px;
+  height: 280px;
+  background: linear-gradient(135deg, #1f1f00, #333300);
+  border-radius: 8px;
+  border: 1px solid var(--grigio-bordo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.movie-info-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+/* Badge genere / anno / durata */
+.movie-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.badge {
+  background-color: var(--giallo);
+  color: var(--nero);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.movie-description {
+  color: var(--grigio);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Pulsante grande "Guarda il Film" */
+.btn-play {
+  background-color: var(--giallo);
+  color: var(--nero);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 36px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-play:hover {
+  background-color: var(--giallo-hover);
+}
+
+/* ===== VIDEO PLAYER ===== */
+.player-container {
+  background-color: var(--nero-card);
+  border: 1px solid var(--grigio-bordo);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 30px;
+}
+
+.player-title {
+  font-size: 1.1rem;
+  color: var(--giallo);
+  margin-bottom: 14px;
+}
+
+/* Stile del tag <video> HTML */
+#video-player {
+  border-radius: 6px;
+  background-color: #000;
+  max-height: 480px;
+}
+
+.btn-close-player {
+  margin-top: 14px;
+  background: none;
+  border: 1px solid var(--grigio-bordo);
+  color: var(--grigio);
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.btn-close-player:hover {
+  border-color: var(--rosso-errore);
+  color: var(--rosso-errore);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--nero-nav);
+  border-top: 1px solid var(--grigio-bordo);
+  text-align: center;
+  padding: 20px;
+  color: var(--grigio);
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 12px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .catalog-section {
+    padding: 30px 20px;
+  }
+
+  .movie-detail {
+    flex-direction: column;
+  }
+
+  .movie-poster-large {
+    width: 100%;
+    min-width: unset;
+    height: 180px;
+  }
+
+  .auth-container {
+    margin: 30px 16px;
+    padding: 24px 20px;
+  }
+
+  .movie-page {
+    padding: 20px;
+  }
+}
