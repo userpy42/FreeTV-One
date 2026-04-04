@@ -26,7 +26,7 @@ function registraUtente(nome, email, password) {
   utenti.push(nuovoUtente);
 
   // Salva nel localStorage
-  localStorage.setItem("fsp_utenti", JSON.stringify(utenti));
+  localStorage.setItem("fto_utenti", JSON.stringify(utenti));
 
   return { successo: true, messaggio: "Registrazione avvenuta con successo!" };
 }
@@ -48,7 +48,7 @@ function loginUtente(email, password) {
   }
 
   // Salva la sessione: memorizza l'utente loggato
-  sessionStorage.setItem("fsp_utente_loggato", JSON.stringify(utente));
+  sessionStorage.setItem("fto_utente_loggato", JSON.stringify(utente));
 
   return { successo: true, messaggio: "Login effettuato!" };
 }
@@ -57,7 +57,7 @@ function loginUtente(email, password) {
  * Effettua il logout: rimuove la sessione e torna alla homepage.
  */
 function logout() {
-  sessionStorage.removeItem("fsp_utente_loggato");
+  sessionStorage.removeItem("fto_utente_loggato");
   window.location.href = "index.html";
 }
 
@@ -66,7 +66,7 @@ function logout() {
  * @returns {object|null} - L'utente loggato, oppure null
  */
 function getUtenteLoggato() {
-  const dati = sessionStorage.getItem("fsp_utente_loggato");
+  const dati = sessionStorage.getItem("fto_utente_loggato");
   if (!dati) return null;
   return JSON.parse(dati);
 }
@@ -76,7 +76,7 @@ function getUtenteLoggato() {
  * @returns {Array}
  */
 function getUtenti() {
-  const dati = localStorage.getItem("fsp_utenti");
+  const dati = localStorage.getItem("fto_utenti");
   if (!dati) return [];
   return JSON.parse(dati);
 }
