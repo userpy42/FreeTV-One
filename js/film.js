@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== POPOLA LA PAGINA CON I DATI DEL FILM =====
 
   // Aggiorna il titolo del browser
-  document.title = film.titolo + " — Free Stream Plus";
+  document.title = film.titolo + " — FreeTv One";
 
   // Poster (emoji come placeholder)
   document.getElementById("movie-poster-large").textContent = film.emoji;
